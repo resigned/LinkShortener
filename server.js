@@ -6,13 +6,28 @@ var redis = require("redis"),
 
 app.use(express.static('static'));
 
-app.get('/test/:link', function(req, res) {
-  res.send("image is set to " + req.params.image);
+app.get('/add/:id/:link', function(req, res) {
+    client.exists(req.params.id, function(err, reply) {
+      if (reply === 1) {
+        res.send("short link is already used :(");
+      } else {
+        client.set(req.params.id, req.params.link);
+        res.send("Successfully created short link!");
+      }
+    });
 });
 
-app.get('/:link',function(req, res) {
-    var requestedLink = req.params.link;
-    res.send(requestedLink);
+app.get('/:id',function(req, res) {
+    var id = req.params.id;
+    client.exists(id, function(err, reply) {
+    if (reply === 1) {
+      client.get(id, function(err, reply) {
+          res.redirect(reply);
+      });
+    } else {
+        res.send("Could not find short link");
+    }
+});
 });
 
 app.listen(8080);
