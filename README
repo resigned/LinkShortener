@@ -1,5 +1,10 @@
 What is LinkShortener?
 Link Shortener is a simple shortener based on Node.JS and Redis.
 
+dependencies
+- express
+- redis
+
+
 Contributers
 - ProBukkit
