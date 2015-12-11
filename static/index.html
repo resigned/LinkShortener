@@ -1,7 +1,29 @@
 <html>
   <head>
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.3/jquery.jgrowl.js"></script>
+    <script src="https://cdn.jsdelivr.net/g/jgrowl@1.3.0(jquery.jgrowl.js+jquery.jgrowl.min.js)"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/g/jgrowl@1.3.0(jquery.jgrowl.min.css+jquery.jgrowl.css)">
+    <script src="js/index.js"></script>
   </head>
   <body>
-    <h1>Link Shortener</h1>
+    <div class="container" id="container">
+      <div class="header">
+        <h1>Link Shortener</h1>
+      </div>
+      <div id="content">
+        <form class="form" id="form" action="/app">
+          <input type="text" name="link" placeholder="Link">
+          <input type="submit" value="Shorten link">
+        </form>
+      </div>
+      <div id="result">
+        <p id="placeholder">Placeholder</p>
+      </div>
+    </div>
   </body>
+  <div class="footer">
+    <p>Made by ProBukkit</p>
+  </div>
 </html>
