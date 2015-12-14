@@ -5,19 +5,6 @@ var redis = require("redis"),
     client = redis.createClient();
 
 app.use(express.static('static'));
-/*
-Test to add url to redis database
-*/
-app.get('/add/:id/:link', function(req, res) {
-    client.exists(req.params.id, function(err, reply) {
-      if (replsy === 1) {
-        res.send("short link is already used :(");
-      } else {
-        client.set(req.params.id, req.params.link);
-        res.send("Successfully created short link!");
-      }
-    });
-});
 
 app.get('/:id',function(req, res) {
     var id = req.params.id;
@@ -42,13 +29,11 @@ app.post('/app', function(req, res){
   var link = req.body.link;
   var id = generateID();
   var isUrl = isURL(link);
-  console.log(req.body);
   if(isUrl){
     client.set(id, link);
     res.setHeader("Content-Type", "text/json");
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.end(JSON.stringify({'Link':link,'GeneratedID':id}));
-    console.log(id);
   } else {
     res.setHeader("Content-Type", "text/json");
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -57,7 +42,7 @@ app.post('/app', function(req, res){
 
   });
 
-app.listen(3000);
+app.listen(8080);
 
 function generateID(){
   var text = "";
