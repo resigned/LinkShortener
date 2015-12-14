@@ -10,7 +10,7 @@ Test to add url to redis database
 */
 app.get('/add/:id/:link', function(req, res) {
     client.exists(req.params.id, function(err, reply) {
-      if (reply === 1) {
+      if (replsy === 1) {
         res.send("short link is already used :(");
       } else {
         client.set(req.params.id, req.params.link);

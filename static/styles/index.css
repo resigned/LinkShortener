@@ -1,0 +1,48 @@
+/**
+Fonts
+**/
+
+@font-face {
+    font-family: Sleek;
+    src: url(../fonts/Sleek.ttf);
+}
+
+html {
+  background: white;
+  font-family: Sleek;
+}
+
+.container {
+  margin: 10em;
+}
+
+.container .header h1 {
+  border-bottom: 2px solid black;
+}
+
+.form input[type=submit] {
+  padding: 1% 7%;
+  font-family: inherit;
+  background: #66ff66;
+  border: 0 none;
+  cursor:pointer;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  color: white;
+}
+
+.form input[type=text] {
+    width: 42%;
+    height: 6%;
+    border:2px solid #ccc;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+#placeholder {
+  color: green;
+}
+.footer {
+  text-align: center;
+  font-family: inherit;
+  bottom: 0;
+}
